@@ -12,10 +12,20 @@
     <title>TWeather</title>
 </head>
 <body>
+    <!-- Adding Background Music -->
+    <audio loop autoplay id="background-music">
+        <source src="/audio/☀️ Relaxing Music (No Copyright) - Shine by Onycs 🇫🇷.mp3" type="audio/mpeg" />
+    </audio>
+    <!-- Switch Button -->
+    <input type="checkbox" id="darkmode-mode"/>
+    <label for="darkmode-mode">
+        
+    </label>
+    <div class="background"></div>
     <div class="card">
         <div class="search">
             <input type="text" placeholder="enter the city name" 
-            spellcheck="false">
+            spellcheck="false" id="searchInput">
             <button>
                 <img src="/images/211817_search_strong_icon.png" alt="button">
             </button>

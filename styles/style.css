@@ -10,11 +10,22 @@ body {
     /* background-color: #D8F3F2; */
     /* background-color: #1a1a1a; */
     background-color: #051F20;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
 }
 
+
 .card{
+    transform-style: preserve-3d;
     width: 90%;
     max-width: 470px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
     background: rgb(218,241,222);
     background: linear-gradient(180deg, rgba(218,241,222,1) 0%, rgba(37,93,82,1) 61%, rgba(8,48,39,1) 100%);
     /* background: linear-gradient(135deg , #27b8b3, #00ada7); */
@@ -30,6 +41,15 @@ body {
     background: -moz-linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(178, 100%, 34%, 1) 100%);
     background: -webkit-linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(178, 100%, 34%, 1) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00FF87", endColorstr="#00ADA7", GradientType=1 ); */
+}
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 40px #DAF1DE;    
+    transition: 0.4s;
+    transform: scale(1.02) rotateX(3deg) rotateY(3deg);
+    cursor: pointer;
+    background: linear-gradient(180deg, rgba(218,255,222,1) 0%, rgba(37,120,82,1) 61%, rgba(8,60,39,1) 100%);
+
+
 }
 
 .search {
@@ -61,6 +81,10 @@ body {
     width: 60px;
     height: 60px;
     cursor: pointer;
+}
+.search button:hover {
+    background-color: #d5f7f4 ; 
+    transform: scale(0.9); /* Slightly shrink the button */
 }
 .search button img {
     width: 16px;
@@ -113,3 +137,82 @@ body {
     margin-top: 10px;
     display: none;
 }
+
+
+
+/* Switch Button Styles */
+label {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100px; 
+    height: 40px; 
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 40px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.4), inset 0px -2px 5px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+label:after {
+    content: "";
+    width: 30px; 
+    height: 30px; 
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #8EB69B, #051F20);
+    border-radius: 30px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+    
+}
+#darkmode-mode{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+input:checked + label {
+    background: #051F20;
+}
+input:checked + label:after {
+    left: 90px; 
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #DAF1DE, #DAF1DE);
+}
+label:active::after{
+    width: 30px;
+}
+.background{
+    width: 100vw;
+    height: 100vh;
+    background: #DAF1DE;
+    z-index: -1;
+    position: absolute;
+    transition: 0.4s;
+}
+input:checked + label + .background {
+    background: #051F20;
+}
+
+label img.sun, label img.moon {
+    position: absolute;
+    width: 20px; 
+    top: 10px; 
+    z-index: 100;
+    transition: 0.4s;
+    
+    
+}
+
+label img.sun {
+    left: 5px; 
+    fill: #DAF1DE;
+}
+
+label img.moon {
+    left: 75px; 
+    fill: #7e7e7e;
+}
+
